@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="mg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071b17">
+  <meta name="description" content="Kitapoko V2.1 — Application fitantanana vola. Mahaiza mitady, ary mahaiza mitantana.">
+  <title>Kitapoko V2.1 | Fitantanana vola</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #07110f;
+      color: #f3f7f5;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    header {
+      background: #0c1d18;
+      border-bottom: 1px solid #214b3b;
+      padding: 18px 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .logo span {
+      color: #43e5a0;
+    }
+
+    .version {
+      background: #eac34c;
+      color: #102018;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 65px 0 45px;
+      background: radial-gradient(ellipse at top, #124c38 0%, #07110f 70%);
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid #36d994;
+      color: #55e8a8;
+      border-radius: 30px;
+      padding: 6px 15px;
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 10vw, 78px);
+      line-height: 1.1;
+      margin-bottom: 12px;
+      letter-spacing: -2px;
+    }
+
+    h1 span {
+      color: #3de39b;
+    }
+
+    .subtitle {
+      color: #c3d2cb;
+      font-size: 18px;
+      max-width: 650px;
+      margin: auto;
+      padding: 0 5px;
+    }
+
+    .slogan {
+      color: #f3ce58;
+      font-weight: bold;
+      font-size: clamp(19px, 4vw, 27px);
+      margin-top: 20px;
+    }
+
+    .download-box {
+      max-width: 580px;
+      margin: 32px auto 0;
+      padding: 28px 18px;
+      border: 1px solid #28694e;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #123c2d, #0c211a);
+      box-shadow: 0 15px 40px #0005;
+    }
+
+    .price {
+      color: #f5d15e;
+      font-size: 43px;
+      font-weight: 900;
+    }
+
+    .price-text {
+      color: #c0d0c8;
+      margin-bottom: 20px;
+    }
+
+    .download {
+      display: inline-block;
+      background: linear-gradient(135deg, #55efaa, #20bd79);
+      color: #062015;
+      padding: 14px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: bold;
+      box-shadow: 0 6px 20px #20bd7940;
+      transition: .2s;
+    }
+
+    .download:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .download small {
+      display: block;
+      font-size: 11px;
+      font-weight: normal;
+    }
+
+    .sync {
+      color: #f0d778;
+      border: 1px solid #8e7937;
+      background: #5c4b181c;
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 28px;
+      margin: 50px 0 25px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: #12231d;
+      border: 1px solid #203c30;
+      border-radius: 17px;
+      padding: 22px;
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      color: #56e5a6;
+      font-size: 18px;
+    }
+
+    .card p {
+      color: #bdc9c3;
+      font-size: 14px;
+    }
+
+    .contact {
+      margin: 50px auto;
+      text-align: center;
+      padding: 30px 15px;
+      border-radius: 22px;
+      border: 1px solid #28694e;
+      background: linear-gradient(135deg, #123b2c, #0b1d17);
+    }
+
+    .contact h2 {
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      margin: 8px 0;
+      color: #d1ddd6;
+      overflow-wrap: anywhere;
+    }
+
+    .contact strong {
+      color: #54e6a4;
+    }
+
+    .contact .download {
+      margin-top: 18px;
+    }
+
+    footer {
+      background: #0c1b16;
+      border-top: 1px solid #20392e;
+      text-align: center;
+      color: #9aaba2;
+      font-size: 13px;
+      padding: 25px 10px;
+    }
+
+    @media (max-width: 700px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 45px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .price {
+        font-size: 37px;
+      }
+
+      .download {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">Kitapoko <span>V2.1</span></div>
+
+    <a class="download" href="Kitapoko.apk" download>
+      ⬇ Télécharger
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+
+      <div class="badge">📱 APPLICATION ANDROID</div>
+
+      <h1>Kitapo<span>ko</span></h1>
+
+      <p class="subtitle">
+        Application fitantanana vola hanampy anao
+        hahafantatra ny vola miditra, ny fandaniana
+        ary ny sisa tavela.
+      </p>
+
+      <div class="slogan">
+        Mahaiza mitady, ary mahaiza mitantana.
+      </div>
+
+      <div class="download-box">
+
+        <div class="price">5 000 Ar</div>
+
+        <p class="price-text">
+          Soa mora vidy
+        </p>
+
+        <a class="download" href="Kitapoko.apk" download>
+          ⬇️ Télécharger Kitapoko
+          <small>Application Android • Fichier APK</small>
+        </a>
+
+        <div class="sync">
+          ☁️ Misy synchronisation par compte Google
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+
+    <h2 class="section-title">
+      Ireo tombontsoa azo amin'ny Kitapoko
+    </h2>
+
+    <div class="features">
+
+      <div class="card">
+        <div class="icon">💰</div>
+        <h3>Vola miditra sy mivoaka</h3>
+        <p>
+          Raketo mora foana ny vola azonao sy ny vola laninao
+          mba hahafahanao manara-maso ny toe-bolanao.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>Tatitra mazava</h3>
+        <p>
+          Jereo ny totalin'ny vola miditra, ny vola mivoaka
+          ary ny sisa tavela.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📅</div>
+        <h3>Tatitra isam-bolana</h3>
+        <p>
+          Araho ny fivoaran'ny toe-bolanao isam-bolana
+          ary fantaro ny fandanianao.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📈</div>
+        <h3>Sokajy sy statistika</h3>
+        <p>
+          Fantaro amin'ny alalan'ny statistika sy kisary
+          ny sokajy tena andanianao vola.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">☁️</div>
+        <h3>Synchronisation Google</h3>
+        <p>
+          Misy synchronisation par compte Google,
+          arakaraka ny fiasan'ny application.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📱</div>
+        <h3>Mora ampiasaina</h3>
+        <p>
+          Fomba tsotra sy mazava hanampy anao hitantana
+          ny volanao isan'andro.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="contact">
+
+      <h2>📲 Raiso ny Kitapoko V2.1</h2>
+
+      <p>Vidiny: <strong>5 000 Ar</strong></p>
+
+      <p>
+        WhatsApp:
+        <strong>+261 33 20 717 65</strong>
+      </p>
+
+      <p>
+        Téléphone:
+        <strong>034 80 175 59</strong>
+      </p>
+
+      <a class="download" href="Kitapoko.apk" download>
+        ⬇️ Télécharger Kitapoko
+      </a>
+
+      <p style="margin-top:18px;">
+        Hanamora ny fitantananao...
+      </p>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Kitapoko V2.1 © 2026<br>
+  Mahaiza mitady, ary mahaiza mitantana.
+</footer>
+
+</body>
+</html>
